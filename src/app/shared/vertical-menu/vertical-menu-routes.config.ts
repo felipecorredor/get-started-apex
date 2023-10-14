@@ -51,6 +51,16 @@ export const ROUTES: RouteInfo[] = [
         isExternalLink: false,
         submenu: [],
       },
+      {
+        path: "/pages/pets",
+        title: "Pets",
+        icon: "ft-arrow-right submenu-icon",
+        class: "",
+        badge: "",
+        badgeClass: "",
+        isExternalLink: false,
+        submenu: [],
+      },
     ],
   },
 ];

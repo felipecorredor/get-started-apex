@@ -4,6 +4,7 @@ import { GalleryPageComponent } from "./gallery/gallery-page/gallery-page.compon
 import { CarouselPageComponent } from "./carousel/carousel-page/carousel-page.component";
 import { DragDropPageComponent } from "./drag-drop/drag-drop-page/drag-drop-page.component";
 import { DatatablePageComponent } from "./datatable/datatable-page/datatable-page.component";
+import { PetsComponent } from "./pets/pets.component";
 
 const routes: Routes = [
   {
@@ -35,6 +36,13 @@ const routes: Routes = [
         component: DatatablePageComponent,
         data: {
           title: "Datatable",
+        },
+      },
+      {
+        path: "pets",
+        component: PetsComponent,
+        data: {
+          title: "Pets",
         },
       },
     ],

@@ -11,6 +11,8 @@ import { DatatablePageComponent } from "./datatable/datatable-page/datatable-pag
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { PipeModule } from "app/shared/pipes/pipe.module";
+import { PetsComponent } from "./pets/pets.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,12 +20,15 @@ import { PipeModule } from "app/shared/pipes/pipe.module";
     CarouselPageComponent,
     DragDropPageComponent,
     DatatablePageComponent,
+    PetsComponent,
   ],
   imports: [
     CommonModule,
     FullPagesRoutingModule,
     DragulaModule.forRoot(),
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxDatatableModule,
     PipeModule,
   ],
