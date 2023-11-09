@@ -19,8 +19,8 @@ export class LoginPageComponent {
   isLoginFailed = false;
 
   loginForm = new UntypedFormGroup({
-    username: new UntypedFormControl("guest@apex.com", [Validators.required]),
-    password: new UntypedFormControl("Password", [Validators.required]),
+    username: new UntypedFormControl("USER#003", [Validators.required]),
+    password: new UntypedFormControl("KLSDKJ32", [Validators.required]),
     rememberMe: new UntypedFormControl(true),
   });
 
@@ -52,15 +52,19 @@ export class LoginPageComponent {
 
     this.authService
       .signinUser(this.loginForm.value.username, this.loginForm.value.password)
-      .then((res) => {
-        localStorage.setItem("userName", this.loginForm.value.username);
-        this.spinner.hide();
-        this.router.navigate(["/page"]);
-      })
-      .catch((err) => {
-        this.isLoginFailed = true;
-        this.spinner.hide();
-        console.log("error: " + err);
+      .subscribe({
+        next: (response: any) => {
+          console.log("Response", response);
+          localStorage.setItem("access_token", response.data);
+          this.spinner.hide();
+          this.router.navigate(["/page"]);
+        },
+        error: (error) => {
+          this.isLoginFailed = true;
+          this.spinner.hide();
+          this.router.navigate(["/page"]);
+          console.log("error: " + error.message);
+        },
       });
   }
 }

@@ -202,9 +202,10 @@
               data-toggle="dropdown"
               ngbDropdownToggle
               ><i class="ft-bell font-medium-3"></i
-              ><span class="notification badge badge-pill badge-danger"
-                >&#32;</span
-              ></a
+              ><span class="notification badge badge-pill badge-danger">
+                <!-- Socket notification -->
+                {{ counterNotification }}
+              </span></a
             >
             <ul
               ngbDropdownMenu
@@ -226,7 +227,7 @@
                 </div>
               </li>
               <li class="scrollable-container" [perfectScrollbar]>
-                <a
+                <!-- <a
                   class="d-flex justify-content-between"
                   href="javascript:void(0)"
                 >
@@ -256,8 +257,8 @@
                       </h6>
                     </div>
                   </div>
-                </a>
-                <a
+                </a> -->
+                <!-- <a
                   class="d-flex justify-content-between"
                   href="javascript:void(0)"
                 >
@@ -285,8 +286,8 @@
                       >
                     </div>
                   </div>
-                </a>
-                <a
+                </a> -->
+                <!-- <a
                   class="d-flex justify-content-between read-notification"
                   href="javascript:void(0)"
                 >
@@ -316,8 +317,8 @@
                       </div>
                     </div>
                   </div>
-                </a>
-                <a
+                </a> -->
+                <!-- <a
                   class="d-flex justify-content-between read-notification"
                   href="javascript:void(0)"
                 >
@@ -336,7 +337,7 @@
                       </h6>
                     </div>
                   </div>
-                </a>
+                </a> -->
                 <div class="cursor-pointer">
                   <div
                     class="media d-flex align-items-center justify-content-between"
@@ -363,7 +364,7 @@
                     </div>
                   </div>
                 </div>
-                <div
+                <!-- <div
                   class="d-flex justify-content-between cursor-pointer read-notification"
                 >
                   <div class="media d-flex align-items-center">
@@ -383,8 +384,8 @@
                       </h6>
                     </div>
                   </div>
-                </div>
-                <a
+                </div> -->
+                <!-- <a
                   class="d-flex justify-content-between read-notification"
                   href="javascript:void(0)"
                 >
@@ -413,8 +414,9 @@
                       </h6>
                     </div>
                   </div>
-                </a>
+                </a> -->
                 <div
+                  *ngFor="let report of reportList"
                   class="d-flex justify-content-between cursor-pointer read-notification"
                 >
                   <div class="media d-flex align-items-center">
@@ -427,7 +429,7 @@
                     </div>
                     <div class="media-body">
                       <h6 class="m-0">
-                        <span>Report generated</span
+                        <span>{{ report }}</span
                         ><small class="grey lighten-1 font-italic float-right"
                           >35 hrs ago</small
                         >
@@ -435,7 +437,7 @@
                     </div>
                   </div>
                 </div>
-                <a
+                <!-- <a
                   class="d-flex justify-content-between read-notification"
                   href="javascript:void(0)"
                 >
@@ -463,9 +465,9 @@
                       >
                     </div>
                   </div>
-                </a>
+                </a> -->
               </li>
-              <li class="dropdown-menu-footer">
+              <li (click)="readAllNotification()" class="dropdown-menu-footer">
                 <div
                   class="noti-footer text-center cursor-pointer primary border-top text-bold-400 py-1"
                 >

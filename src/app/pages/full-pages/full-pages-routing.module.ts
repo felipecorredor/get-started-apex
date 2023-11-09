@@ -5,6 +5,7 @@ import { CarouselPageComponent } from "./carousel/carousel-page/carousel-page.co
 import { DragDropPageComponent } from "./drag-drop/drag-drop-page/drag-drop-page.component";
 import { DatatablePageComponent } from "./datatable/datatable-page/datatable-page.component";
 import { PetsComponent } from "./pets/pets.component";
+import { SemaphoreComponent } from "./semaphore/semaphore.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,13 @@ const routes: Routes = [
         component: PetsComponent,
         data: {
           title: "Pets",
+        },
+      },
+      {
+        path: "semaphore",
+        component: SemaphoreComponent,
+        data: {
+          title: "Semaphore",
         },
       },
     ],

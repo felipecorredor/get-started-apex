@@ -23,6 +23,7 @@ import { CustomizerService } from "../services/customizer.service";
 import { UntypedFormControl } from "@angular/forms";
 import { LISTITEMS } from "../data/template-search";
 import { Router } from "@angular/router";
+import { WebSocketService } from "./web-socket.service";
 
 @Component({
   selector: "app-navbar",
@@ -59,6 +60,9 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   userName = "";
   control = new UntypedFormControl();
 
+  counterNotification: number = 0;
+  reportList: string[] = ["websocket service"];
+
   public config: any = {};
 
   constructor(
@@ -66,7 +70,8 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     private layoutService: LayoutService,
     private router: Router,
     private configService: ConfigService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private webSocketService: WebSocketService
   ) {
     const browserLang: string = translate.getBrowserLang();
     translate.use(browserLang.match(/en|es|pt|de/) ? browserLang : "en");
@@ -83,11 +88,30 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.userName = localStorage.getItem("userName");
 
+    this.webSocketConnect();
+
     if (this.innerWidth < 1200) {
       this.isSmallScreen = true;
     } else {
       this.isSmallScreen = false;
     }
+  }
+
+  webSocketConnect() {
+    this.webSocketService.connect().subscribe(
+      (message) => {
+        this.counterNotification++;
+        this.reportList.push(message);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  readAllNotification() {
+    this.counterNotification = 0;
+    this.reportList = [];
   }
 
   ngAfterViewInit() {

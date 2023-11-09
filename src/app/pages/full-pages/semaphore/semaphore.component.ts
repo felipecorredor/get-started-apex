@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation, ViewChild } from "@angular/core";
 
 import { Subscription } from "rxjs";
 import { DecimalPipe } from "@angular/common";
-import { PetsApiService } from "./pets_api.service";
 import {
   ColumnMode,
   DatatableComponent,
@@ -10,14 +9,15 @@ import {
 } from "@swimlane/ngx-datatable";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { SemaphoreApiService } from "./semaphore_api.service";
 
 @Component({
   selector: "app-pets",
-  templateUrl: "./pets.component.html",
+  templateUrl: "./semaphore.component.html",
   // styleUrls: ["/src/assets/sass/libs/datatables.scss"],
   providers: [DecimalPipe],
 })
-export class PetsComponent implements OnInit {
+export class SemaphoreComponent implements OnInit {
   // public
   public contentHeader: object;
 
@@ -33,7 +33,7 @@ export class PetsComponent implements OnInit {
   public columns = [
     { name: "Id", prop: "id" },
     { name: "Name", prop: "name" },
-    { name: "Age", prop: "age" },
+    { name: "Description", prop: "description" },
   ];
 
   // multi Purpose datatable Row data
@@ -158,7 +158,7 @@ export class PetsComponent implements OnInit {
    */
   constructor(
     private http: HttpClient,
-    private petsApiService: PetsApiService
+    private semaphoreApiService: SemaphoreApiService
   ) {
     this.tempData = this.DatatableData;
     this.multiPurposeTemp = this.DatatableData;
@@ -174,10 +174,10 @@ export class PetsComponent implements OnInit {
     // Initially load first page
     this.serverSideSetPage({ offset: 0 });
 
-    const subscription = this.petsApiService.getPets().subscribe({
+    const subscription = this.semaphoreApiService.getRFIDList().subscribe({
       next: (response) => {
         console.log("response::", response);
-        this.rows = response;
+        this.rows = response.data;
       },
       error: (error) => {
         console.error("Error:", error);

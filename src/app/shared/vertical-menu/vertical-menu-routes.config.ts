@@ -61,6 +61,16 @@ export const ROUTES: RouteInfo[] = [
         isExternalLink: false,
         submenu: [],
       },
+      {
+        path: "/pages/semaphore",
+        title: "Semaphore",
+        icon: "ft-arrow-right submenu-icon",
+        class: "",
+        badge: "",
+        badgeClass: "",
+        isExternalLink: false,
+        submenu: [],
+      },
     ],
   },
 ];

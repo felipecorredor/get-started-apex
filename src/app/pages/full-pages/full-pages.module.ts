@@ -13,6 +13,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { PipeModule } from "app/shared/pipes/pipe.module";
 import { PetsComponent } from "./pets/pets.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SemaphoreComponent } from "./semaphore/semaphore.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     DragDropPageComponent,
     DatatablePageComponent,
     PetsComponent,
+    SemaphoreComponent,
   ],
   imports: [
     CommonModule,
