@@ -54,9 +54,12 @@ export class LoginPageComponent {
       .signinUser(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe({
         next: (response: any) => {
-          console.log("Response", response);
-          localStorage.setItem("access_token", response.data);
           this.spinner.hide();
+          if (response.code !== 200) {
+            this.isLoginFailed = true;
+            return;
+          }
+          localStorage.setItem("access_token", response.data);
           this.router.navigate(["/page"]);
         },
         error: (error) => {

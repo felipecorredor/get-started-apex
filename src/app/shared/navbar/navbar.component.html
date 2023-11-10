@@ -219,9 +219,13 @@
                     <i
                       class="ft-bell font-medium-3 d-flex align-items-center mr-2"
                     ></i
-                    ><span class="noti-title">7 New Notification</span>
+                    ><span class="noti-title"
+                      >{{ counterNotification }} New Notification</span
+                    >
                   </div>
-                  <span class="text-bold-400 cursor-pointer"
+                  <span
+                    (click)="readAllNotification()"
+                    class="text-bold-400 cursor-pointer"
                     >Mark all as read</span
                   >
                 </div>
@@ -419,7 +423,10 @@
                   *ngFor="let report of reportList"
                   class="d-flex justify-content-between cursor-pointer read-notification"
                 >
-                  <div class="media d-flex align-items-center">
+                  <div
+                    class="media d-flex align-items-center"
+                    (click)="navigateSemaphore()"
+                  >
                     <div class="media-left">
                       <div class="avatar bg-info bg-lighten-4 mr-3 p-1">
                         <div class="avatar-content font-medium-2">

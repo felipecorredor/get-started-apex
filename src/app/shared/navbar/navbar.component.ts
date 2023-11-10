@@ -100,6 +100,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   webSocketConnect() {
     this.webSocketService.connect().subscribe(
       (message) => {
+        console.log("message:::", message);
         this.counterNotification++;
         this.reportList.push(message);
       },
@@ -209,6 +210,12 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
         this.seachTextEmpty.emit(true);
       }
     }
+  }
+
+  navigateSemaphore() {
+    this.router.navigate(["/pages/semaphore"]).then(() => {
+      window.location.reload();
+    });
   }
 
   redirectTo(value) {

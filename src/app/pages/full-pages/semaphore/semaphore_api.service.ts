@@ -17,8 +17,6 @@ export class SemaphoreApiService {
   private createHeaders(): HttpHeaders {
     const access_token = this.getAccessToken();
 
-    console.log("access_token::", access_token);
-
     return new HttpHeaders({
       "Content-Type": "application/json",
       authorizationToken: access_token,

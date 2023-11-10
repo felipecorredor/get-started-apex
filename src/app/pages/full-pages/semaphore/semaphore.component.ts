@@ -31,10 +31,10 @@ export class SemaphoreComponent implements OnInit {
 
   // column header
   public columns = [
-    { name: "Connection Id", prop: "connectionId" },
-    { name: "Name", prop: "name" },
-    { name: "Date", prop: "date" },
     { name: "SK", prop: "SK" },
+    { name: "Connection Id", prop: "connectionId" },
+    { name: "RFID", prop: "name" },
+    { name: "Date Time", prop: "datetime" },
   ];
 
   // multi Purpose datatable Row data
