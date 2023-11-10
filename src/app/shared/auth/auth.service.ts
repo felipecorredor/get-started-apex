@@ -39,16 +39,10 @@ export class AuthService {
     return this.http.post(`${this.URL}/authentication`, body, {
       headers,
     });
-
-    //uncomment above firebase auth code and remove this temp code
-    // return new Promise(function (resolve, reject) {
-    //   setTimeout(function () {
-    //     resolve(true);
-    //   }, 1000);
-    // });
   }
 
   logout() {
+    localStorage.removeItem("access_token");
     this._firebaseAuth.signOut();
     this.router.navigate(["YOUR_LOGOUT_URL"]);
   }

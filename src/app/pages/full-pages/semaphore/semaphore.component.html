@@ -33,13 +33,23 @@
               [scrollbarH]="true"
             >
               <ngx-datatable-column
-                name="Message"
-                prop="message"
+                name="SK"
+                prop="SK"
+                [width]="30"
+              ></ngx-datatable-column>
+              <ngx-datatable-column
+                name="Connection Id"
+                prop="connectionId"
                 [width]="30"
               ></ngx-datatable-column>
               <ngx-datatable-column
                 name="Name"
                 prop="name"
+                [width]="30"
+              ></ngx-datatable-column>
+              <ngx-datatable-column
+                name="Date"
+                prop="date"
                 [width]="30"
               ></ngx-datatable-column>
               <ngx-datatable-column name="Actions" [width]="70">

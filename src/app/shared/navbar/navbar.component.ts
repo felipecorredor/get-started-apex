@@ -114,6 +114,11 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     this.reportList = [];
   }
 
+  logOutSession() {
+    localStorage.removeItem("access_token");
+    this.router.navigate(["pages/login"]);
+  }
+
   ngAfterViewInit() {
     this.configSub = this.configService.templateConf$.subscribe(
       (templateConf) => {

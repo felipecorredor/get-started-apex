@@ -62,7 +62,6 @@ export class LoginPageComponent {
         error: (error) => {
           this.isLoginFailed = true;
           this.spinner.hide();
-          this.router.navigate(["/page"]);
           console.log("error: " + error.message);
         },
       });

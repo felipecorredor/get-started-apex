@@ -15,8 +15,9 @@ export class SemaphoreApiService {
   }
 
   private createHeaders(): HttpHeaders {
-    const access_token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTSyI6IlVTRVIjMDAzIiwibmFtZSI6ImFuZHJlcyIsInJvbCI6IlJPTCNQTEFORUFET1IiLCJpYXQiOjE2OTkzMzEyOTd9.Tvji69j7PA283YisUDvPmVVzLiM9aKRi_PEdQ1wyFSU";
+    const access_token = this.getAccessToken();
+
+    console.log("access_token::", access_token);
 
     return new HttpHeaders({
       "Content-Type": "application/json",
@@ -29,7 +30,7 @@ export class SemaphoreApiService {
 
     const body = {
       operation: "get",
-      filter: "PET#",
+      filter: "RFID#",
     };
 
     return this.client.post(`${this.URL}/lambda_function`, body, { headers });
